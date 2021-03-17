@@ -24,7 +24,7 @@
  *}
 {assign var="tt_product_url" value=$product.url|regex_replace:'/.html.*/':'.html'}
 {block name='product_miniature_item'}
-    <article class="product-miniature js-product-miniature mb-3" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}">
+    <article class="tt-product product-miniature js-product-miniature mb-3" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}">
         <div class="card card-product">
             <div class="card-img-top product__card-img">
                 {block name='product_thumbnail'}
@@ -43,7 +43,7 @@
                         {/if}
                     </a>
                 {/block}
-                <div class="highlighted-informations text-center p-2{if !$product.main_variants} no-variants{/if} visible--desktop">
+                <div class="highlighted-informations text-center p-2{if !$product.main_variants} no-variants{/if} visible--desktop" style="display: none;">
                     {block name='quick_view'}
                         <span class="quick-view" data-link-action="quickview">
                       <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}
@@ -56,6 +56,10 @@
                         {/if}
                     {/block}
                 </div>
+                {if $product.show_price}
+                    <div class="tt-product-price">{$product.price}</div>
+                {/if}
+
             </div>
             {* end card-img-top*}
 
@@ -74,14 +78,14 @@
                                     {/if}
                                 {/if}
                             {/foreach}
-                            <span>{$pretitle}</span>
-                            <p class="h3 product-title"><a href="{$tt_product_url}">{$product.name|substr:$product_name_split}</a></p>
+                            <p class="tt-product-pretitle">{$pretitle}</p>
+                            <p class="product-title"><a href="{$tt_product_url}">{$product.name|substr:$product_name_split}</a></p>
                         {else if ($product.name|substr:0:$product_name_split|lower) == "kubek"}
                             {assign var="pretitle" value="Kubek"}
-                            <span>{$pretitle}</span>
-                            <p class="h3 product-title"><a href="{$tt_product_url}">{$product.name|substr:$product_name_split}</a></p>
+                            <p class="tt-product-pretitle">{$pretitle}</p>
+                            <p class="product-title"><a href="{$tt_product_url}">{$product.name|substr:$product_name_split}</a></p>
                         {else}
-                            <p class="h3 product-title"><a href="{$tt_product_url}">{$product.name}</a></p>
+                            <p class="product-title"><a href="{$tt_product_url}">{$product.name}</a></p>
                         {/if}
 
                     {/block}
@@ -90,7 +94,7 @@
                     {/block}
                     {block name='product_price_and_shipping'}
                         {if $product.show_price}
-                            <div class="product-price-and-shipping text-center">
+                            <div class="product-price-and-shipping text-center" style="display: none;">
                                 {if $product.has_discount}
                                     {hook h='displayProductPriceBlock' product=$product type="old_price"}
 
