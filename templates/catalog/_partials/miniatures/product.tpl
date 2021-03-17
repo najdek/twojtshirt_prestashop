@@ -22,13 +22,13 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
+{assign var="tt_product_url" value=$product.url|regex_replace:'/.html.*/':'.html'}
 {block name='product_miniature_item'}
     <article class="product-miniature js-product-miniature mb-3" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}">
         <div class="card card-product">
-
             <div class="card-img-top product__card-img">
                 {block name='product_thumbnail'}
-                    <a href="{$product.url}" class="thumbnail product-thumbnail rc ratio1_1">
+                    <a href="{$tt_product_url}" class="thumbnail product-thumbnail rc ratio1_1">
                         {if $product.cover}
                             <img
                                     data-src = "{$product.cover.bySize.home_default.url}"
@@ -63,9 +63,9 @@
                 <div class="product-description product__card-desc">
                     {block name='product_name'}
                         {if in_array($page.page_name, ['best-sales','category','manufacturer','new-products','prices-drop','product-list','search','supplier'])}
-                        <h2 class="h3 product-title"><a href="{$product.url}">{$product.name|truncate:30:'...'}</a></h2>
+                        <h2 class="h3 product-title"><a href="{$tt_product_url}">{$product.name|truncate:30:'...'}</a></h2>
                         {else}
-                            <p class="h3 product-title"><a href="{$product.url}">{$product.name|truncate:30:'...'}</a></p>
+                            <p class="h3 product-title"><a href="{$tt_product_url}">{$product.name|truncate:30:'...'}</a></p>
                         {/if}
                     {/block}
                     {block name='product_reviews'}

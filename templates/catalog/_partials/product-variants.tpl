@@ -54,13 +54,25 @@
           </div>
 
       {elseif $group.group_type == 'radio'}
-          <div class="label">{$group.name}</div>
-          {foreach from=$group.attributes key=id_attribute item=group_attribute}
-              <div class="custom-control custom-radio">
-                <input id="r-variant-{$id_attribute_group}-{$id_attribute}" class="custom-control-input" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}"{if $group_attribute.selected} checked="checked"{/if}>
-                <label class="custom-control-label" for="r-variant-{$id_attribute_group}-{$id_attribute}">{$group_attribute.name}</label>
-              </div>
-          {/foreach}
+          <div class="tt-variants-{$id_attribute_group}">
+              <div class="label">{$group.name}</div>
+              {foreach from=$group.attributes key=id_attribute item=group_attribute}
+                  <div class="custom-control custom-radio">
+                    <input id="r-variant-{$id_attribute_group}-{$id_attribute}" class="custom-control-input" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}"{if $group_attribute.selected} checked="checked"{/if}>
+                    <label class="custom-control-label" for="r-variant-{$id_attribute_group}-{$id_attribute}">{$group_attribute.name}</label>
+                  </div>
+              {/foreach}
+          </div>
+          {if $group.name == 'Rozmiar'}
+              <script>
+                  document.addEventListener("DOMContentLoaded", function() {
+                      if (!window.location.href.includes("rozmiar-")) {
+                          $(".tt-variants-{$id_attribute_group} input[type=radio]").attr("checked", false);
+                          $(".product-add-to-cart button.add-to-cart").attr("disabled", true);
+                      }
+                  });
+              </script>
+          {/if}
       {/if}
     </div>
     {/if}
