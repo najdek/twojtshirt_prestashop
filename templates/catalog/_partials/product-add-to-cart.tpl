@@ -26,6 +26,7 @@
   {if !$configuration.is_catalog}
 
     {block name='product_quantity'}
+      <div class="d-inline-block tt-popover-add-to-cart" data-toggle="popover" data-content="Najpierw wybierz rozmiar">
       <div class="product-quantity row align-items-center no-gutters">
         <label for="quantity_wanted" class="quantity__label col-auto">{l s='Quantity' d='Shop.Theme.Catalog'}</label>
         <div class="qty col-auto">
@@ -40,7 +41,6 @@
             {if isset($product.product_url)}data-update-url="{$product.product_url}"{/if}
           >
         </div>
-
         <div class="add col-auto">
           <button
             class="btn btn-primary add-to-cart btn-lg btn-block btn-add-to-cart js-add-to-cart"
@@ -55,6 +55,8 @@
           </button>
         </div>
           {hook h='displayProductActions' product=$product}
+      <div class="tt-cover"></div>
+      </div>
       </div>
     {/block}
 

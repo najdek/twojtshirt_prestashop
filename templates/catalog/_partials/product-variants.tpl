@@ -54,7 +54,7 @@
           </div>
 
       {elseif $group.group_type == 'radio'}
-          <div class="tt-variants-{$id_attribute_group}">
+          <div class="tt-variants-{$id_attribute_group}{if $group.name == 'Rozmiar'} tt-variants-rozmiar{/if}">
               <div class="label">{$group.name}</div>
               {foreach from=$group.attributes key=id_attribute item=group_attribute}
                   <div class="custom-control custom-radio">
@@ -66,10 +66,7 @@
           {if $group.name == 'Rozmiar'}
               <script>
                   document.addEventListener("DOMContentLoaded", function() {
-                      if (!window.location.href.includes("rozmiar-")) {
-                          $(".tt-variants-{$id_attribute_group} input[type=radio]").attr("checked", false);
-                          $(".product-add-to-cart button.add-to-cart").attr("disabled", true);
-                      }
+                      ttRequireProductSize();
                   });
               </script>
           {/if}

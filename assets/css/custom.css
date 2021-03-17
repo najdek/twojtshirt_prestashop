@@ -2,3 +2,30 @@
  * Custom code goes here.
  * A template should always ship with an empty custom.css
  */
+
+
+input.js-cart-line-product-quantity::-webkit-outer-spin-button,
+input.js-cart-line-product-quantity::-webkit-inner-spin-button,
+.product-quantity input#quantity_wanted::-webkit-outer-spin-button,
+.product-quantity input#quantity_wanted::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input.js-cart-line-product-quantity,
+.product-quantity input#quantity_wanted {
+    -moz-appearance: textfield;
+}
+
+.tt-popover-add-to-cart {
+  position: relative;
+}
+
+.tt-popover-add-to-cart .tt-cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  display: none;
+}
