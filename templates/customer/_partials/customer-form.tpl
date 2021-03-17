@@ -33,6 +33,7 @@
       <section class="form-fields">
         {block name='form_fields'}
           {foreach from=$formFields item="field"}
+            {if $field.name=='id_gender'}{continue}{/if}
             {block name='form_field'}
               {form_field field=$field}
             {/block}
