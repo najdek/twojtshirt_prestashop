@@ -62,11 +62,28 @@
             <div class="card-body">
                 <div class="product-description product__card-desc">
                     {block name='product_name'}
-                        {if in_array($page.page_name, ['best-sales','category','manufacturer','new-products','prices-drop','product-list','search','supplier'])}
-                        <h2 class="h3 product-title"><a href="{$tt_product_url}">{$product.name|truncate:30:'...'}</a></h2>
+
+                        {assign var="product_name_split" value=$product.name|strpos:" "}
+                        {if ($product.name|substr:0:$product_name_split|lower) == "koszulka"}
+                            {foreach from=$product.features item=feature}
+                                {if $feature.name == 'Płeć'}
+                                    {if $feature.value == 'Męska'}
+                                        {assign var="pretitle" value="Koszulka męska"}
+                                    {else if $feature.value == 'Damska'}
+                                        {assign var="pretitle" value="Koszulka damska"}
+                                    {/if}
+                                {/if}
+                            {/foreach}
+                            <span>{$pretitle}</span>
+                            <p class="h3 product-title"><a href="{$tt_product_url}">{$product.name|substr:$product_name_split}</a></p>
+                        {else if ($product.name|substr:0:$product_name_split|lower) == "kubek"}
+                            {assign var="pretitle" value="Kubek"}
+                            <span>{$pretitle}</span>
+                            <p class="h3 product-title"><a href="{$tt_product_url}">{$product.name|substr:$product_name_split}</a></p>
                         {else}
-                            <p class="h3 product-title"><a href="{$tt_product_url}">{$product.name|truncate:30:'...'}</a></p>
+                            <p class="h3 product-title"><a href="{$tt_product_url}">{$product.name}</a></p>
                         {/if}
+
                     {/block}
                     {block name='product_reviews'}
                         {hook h='displayProductListReviews' product=$product}
