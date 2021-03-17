@@ -29,3 +29,43 @@ input.js-cart-line-product-quantity,
   z-index: 5;
   display: none;
 }
+
+.tt-product-price {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.tt-product-pretitle {
+  font-size: .875rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.tt-product .product-title {
+  text-align: left;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.tt-product .card-body {
+  padding: 0rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tt-product .product-thumbnail {
+  background: #fff;
+}
+body {
+  background-color: #fff;
+}
+.breadcrumb {
+  background-color: #fff;
+}
+#carousel .slick-slide .rc {
+  background: #fff;
+}
