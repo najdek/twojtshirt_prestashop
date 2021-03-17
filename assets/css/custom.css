@@ -18,6 +18,11 @@ input.js-cart-line-product-quantity,
 
 .tt-popover-add-to-cart {
   position: relative;
+  width: 100%;
+}
+
+.tt-popover-add-to-cart .add {
+  width: 100%;
 }
 
 .tt-popover-add-to-cart .tt-cover {
@@ -36,7 +41,8 @@ input.js-cart-line-product-quantity,
   right: 0;
   background-color: #000;
   color: #fff;
-  font-weight: bold;
+  font-size: .825rem;
+  font-weight: 700;
   padding: 2px 6px;
   border-radius: 2px;
 }
@@ -50,6 +56,8 @@ input.js-cart-line-product-quantity,
 .tt-product .product-title {
   text-align: left;
   font-size: 1.05rem;
+  font-size: 1rem;
+  font-weight: 600;
   margin: 0;
 }
 
@@ -66,6 +74,54 @@ body {
 .breadcrumb {
   background-color: #fff;
 }
-#carousel .slick-slide .rc {
+.slick-slide .rc {
   background: #fff;
+}
+.tt-product {
+  margin-bottom: 2rem !important;
+}
+.tt-product .card-product {
+  border: 0;
+}
+.tt-variant-btn input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+.tt-variant-btn {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  color: #000;
+  margin-right: 8px;
+}
+.tt-variant-btn.active {
+  background-color: #2fb5d2 !important;
+  border: 1px solid #2fb5d2 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+.product-prices .tax-shipping-delivery-label {
+  display: none;
+}
+.product-prices .current-price-display {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.product-prices {
+  margin-bottom: 1rem;
+}
+.tt-productpage-title {
+  margin: .5rem 0;
+}
+.cart-summary .card-footer {
+  padding: 0;
+}
+.product-line-actions .input-group.bootstrap-touchspin {
+    max-width: 100px;
+}
+input.js-cart-line-product-quantity {
+  padding: 0;
+}
+#customer-form .form-fields .form-group small.text-muted {
+  display: none;
 }

@@ -55,13 +55,14 @@
 
       {elseif $group.group_type == 'radio'}
           <div class="tt-variants-{$id_attribute_group}{if $group.name == 'Rozmiar'} tt-variants-rozmiar{/if}">
-              <div class="label">{$group.name}</div>
+              <div class="label" style="margin-right: 6px;">{$group.name}:</div>
+              <div class="btn-group" data-toggle="buttons">
               {foreach from=$group.attributes key=id_attribute item=group_attribute}
-                  <div class="custom-control custom-radio">
-                    <input id="r-variant-{$id_attribute_group}-{$id_attribute}" class="custom-control-input" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}"{if $group_attribute.selected} checked="checked"{/if}>
-                    <label class="custom-control-label" for="r-variant-{$id_attribute_group}-{$id_attribute}">{$group_attribute.name}</label>
-                  </div>
+                  <label class="btn tt-variant-btn{if $group_attribute.selected} active{/if}">
+                    <input type="radio" id="r-variant-{$id_attribute_group}-{$id_attribute}" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}"{if $group_attribute.selected} checked="checked"{/if}>{$group_attribute.name}
+                  </label>
               {/foreach}
+              </div>
           </div>
           {if $group.name == 'Rozmiar'}
               <script>

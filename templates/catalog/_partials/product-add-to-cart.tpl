@@ -26,10 +26,11 @@
   {if !$configuration.is_catalog}
 
     {block name='product_quantity'}
-      <div class="d-inline-block tt-popover-add-to-cart" data-toggle="popover" data-content="Najpierw wybierz rozmiar">
+      <div class="d-inline-block tt-popover-add-to-cart" data-toggle="popover" data-placement="bottom" data-content="Najpierw wybierz rozmiar">
       <div class="product-quantity row align-items-center no-gutters">
-        <label for="quantity_wanted" class="quantity__label col-auto">{l s='Quantity' d='Shop.Theme.Catalog'}</label>
-        <div class="qty col-auto">
+        <div class="col-auto" style="display: none;">
+        <label for="quantity_wanted" class="quantity__label" style="display: inline-block;">{l s='Quantity' d='Shop.Theme.Catalog'}</label>
+        <div class="qty" style="display: inline-block;">
           <input
             type="number"
             name="qty"
@@ -40,6 +41,7 @@
             aria-label="{l s='Quantity' d='Shop.Theme.Actions'}"
             {if isset($product.product_url)}data-update-url="{$product.product_url}"{/if}
           >
+        </div>
         </div>
         <div class="add col-auto">
           <button
